@@ -4,27 +4,20 @@ import java.lang.*;
 
 public class Main
 {
-    //11050번 이항계수1
-    static int N, K;
-    static int cnt = 0;
-    static void num(int idx, int rst)
-    {
-        if(rst >= K)
-        {
-            cnt++;
-            return;
-        }
-        for(int i = idx; i <= N; i++) num(i+1, rst+1);
-    }
     public static void main(String[] args) throws IOException
     {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
 
-        N = Integer.parseInt(st.nextToken());
-        K = Integer.parseInt(st.nextToken());
+        int N = Integer.parseInt(st.nextToken());
+        int K = Integer.parseInt(st.nextToken());
+        int[][] dp = new int[11][11];
 
-        num(1, 0);
-        System.out.println(cnt);
+        for(int i = 0; i <= N; i++)
+        {
+            dp[i][0] = dp[i][i] = 1;
+            for(int j = 1; j < i; j++) dp[i][j] = dp[i-1][j-1] + dp[i-1][j];
+        }
+        System.out.println(dp[N][K]);
     }
 }
