@@ -44,7 +44,6 @@ void BFS(int sr, int sc, int st)
 			if (nr < 0 || nr >= N) continue;
 			if (nc < 0 || nc >= N) continue;
 			if (visited[nr][nc]) continue;
-
 			if (area[nr][nc] == 1) //갈 수 있는 땅이면
 			{
 				if (!visited[nr][nc])
