@@ -24,7 +24,6 @@ int main() {
 
 			dp[i][j] = true;
 			dp[i][abs(j - weight[i])] = true;
-			if (j + weight[i] > 15000) continue;
 			dp[i][j + weight[i]] = true;
 		}
 	}
