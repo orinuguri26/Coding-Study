@@ -8,16 +8,16 @@ public class Main {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st;
         int N = Integer.parseInt(br.readLine());
-        int[] dist = new int[N];
-        int[] fuel = new int[N];
+        long[] dist = new long[N];
+        long[] fuel = new long[N];
 
         st = new StringTokenizer(br.readLine());
-        for(int i = 1; i < N; i++) dist[i] = Integer.parseInt(st.nextToken());
+        for(int i = 1; i < N; i++) dist[i] = Long.parseLong(st.nextToken());
         st = new StringTokenizer(br.readLine());
-        for(int i = 0; i < N; i++) fuel[i] = Integer.parseInt(st.nextToken());
+        for(int i = 0; i < N; i++) fuel[i] = Long.parseLong(st.nextToken());
 
-        int cost = 0;
-        int prev = fuel[0];
+        long cost = 0;
+        long prev = fuel[0];
         for(int i = 1; i < N; i++) {
             cost += prev * dist[i];
             if(fuel[i] < prev) prev = fuel[i];
