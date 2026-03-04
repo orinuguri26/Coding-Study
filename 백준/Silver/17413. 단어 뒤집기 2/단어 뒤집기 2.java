@@ -15,6 +15,8 @@ public class Main {
             if(str.charAt(i) == '<') {
                 if(!s.isEmpty()) while(!s.isEmpty()) sb.append(s.pop());
                 tag = true;
+                sb.append(str.charAt(i));
+                continue;
             }
             if(str.charAt(i) == '>') {
                 sb.append(str.charAt(i));
