@@ -13,17 +13,14 @@ class Solution {
             for(int j = 0; j < n; j++) {
                 int cur = rflip[j] ? (beginning[j][i] + 1) % 2 : beginning[j][i];
                 if(j == 0 && cur != target[0][i]) {
-                    valid = false;
+                    valid = false; //열 뒤집을 거임
                     cnt++;
                 }
-                if(valid) {
-                    if(cur != target[j][i]) go = false;
-                }
-                else {
-                    if(cur == target[j][i]) go = false;
-                }
+                if(valid != (cur == target[j][i])) go = false;
+                //valid가 true(안뒤집) cur과 target이 같아야함
+                //valid가 false(뒤집) cur과 target이 달라야함
             }
-            if(!go) break;
+            if(!go) return go;
         }
         return go;
     }
@@ -45,7 +42,6 @@ class Solution {
             }
             if(cflip()) answer = Math.min(answer, cnt);
         }
-
         return answer == Integer.MAX_VALUE ? -1 : answer;
     }
 }
